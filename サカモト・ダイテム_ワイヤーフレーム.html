@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>サカモト・ダイテム株式会社 サイトリニューアル ワイヤーフレーム</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#f4f6f8; --panel:#ffffff; --line:#d4dae2; --line2:#c2cad4;
+    --text:#2a3340; --sub:#6b7480; --dark:#1f2a36; --box:#e6eaef; --boxtx:#7a8494;
+    --note:#fff7e8; --noteline:#e7c982; --notetx:#7a5a16;
+    --tag:#2a3340; --accent:#52606e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans JP",system-ui,sans-serif;color:var(--text);background:var(--base);line-height:1.7;font-size:15px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  .container{width:min(1180px,92%);margin:0 auto}
+
+  /* ===== ワイヤー共通部品 ===== */
+  .wire-box{background:var(--box);border:1px dashed var(--line2);border-radius:10px;min-height:140px;display:grid;place-items:center;color:var(--boxtx);font-size:13px;font-weight:700;text-align:center;padding:14px}
+  .section-title{margin-bottom:28px}
+  .section-title .en{display:inline-block;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-left:3px solid var(--accent);padding-left:8px}
+  .section-title h2{font-size:clamp(22px,3.2vw,32px);margin-top:8px;color:var(--dark);font-weight:900}
+  .section-title p{color:var(--sub);margin-top:8px;max-width:720px;font-size:14px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:6px;background:var(--dark);color:#fff;font-weight:700;font-size:13px;border:1px solid var(--dark)}
+  .btn.ghost{background:#fff;color:var(--dark)}
+  .btn.amber{background:#fff;color:var(--dark);border:1px dashed #c98b3a}
+  .grid{display:grid;gap:18px}
+  .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)} .g6{grid-template-columns:repeat(6,1fr)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+  .ph{color:var(--sub);font-size:13px}
+  .lbl{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--tag);border-radius:4px;padding:2px 8px;letter-spacing:.04em}
+  .lbl.new{background:#c0392b}
+
+  /* 設計意図ノート */
+  .note{background:var(--note);border:1px solid var(--noteline);border-left:5px solid var(--noteline);border-radius:8px;padding:12px 16px;margin:14px 0;font-size:13px;color:var(--notetx)}
+  .note b{color:#5e440f}
+  .note .sp{display:inline-block;margin-top:6px;color:#6a5a2a}
+
+  /* ページ区切り */
+  .pagewrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:0 auto 40px;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+  .pagebar{background:var(--dark);color:#fff;padding:12px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .pagebar .no{font-size:12px;font-weight:700;background:#fff;color:var(--dark);border-radius:4px;padding:2px 9px}
+  .pagebar h3{font-size:16px;font-weight:700}
+  .pagebar .meta{font-size:12px;color:#c7cdd6;margin-left:auto}
+  .pagebody{padding:26px 28px 30px}
+  .blk{padding:18px 0;border-bottom:1px dashed var(--line)}
+  .blk:last-child{border-bottom:0}
+
+  /* 模式ヘッダー/ヒーロー */
+  .mock-header{display:flex;align-items:center;gap:18px;border:1px solid var(--line);border-radius:8px;padding:12px 16px;background:#fbfcfd;flex-wrap:wrap}
+  .mock-logo{font-weight:900;color:var(--dark);font-size:16px}
+  .mock-nav{display:flex;gap:14px;flex-wrap:wrap;color:var(--sub);font-size:12.5px;font-weight:700}
+  .mock-utils{margin-left:auto;display:flex;gap:8px;align-items:center}
+  .pill{border:1px solid var(--line2);border-radius:5px;padding:6px 10px;font-size:11.5px;color:var(--sub);font-weight:700;white-space:nowrap}
+
+  .hero{display:grid;grid-template-columns:1.4fr .9fr;gap:20px;align-items:stretch}
+  .hero .copy{background:linear-gradient(180deg,#eef1f5,#e6eaef);border:1px dashed var(--line2);border-radius:10px;padding:26px;display:flex;flex-direction:column;justify-content:center;gap:14px;min-height:300px}
+  .hero h1{font-size:clamp(24px,3.6vw,40px);color:var(--dark);font-weight:900;line-height:1.35}
+  .hero .sub{color:var(--sub);font-size:14px}
+  .hero .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+  .hero .specs{display:flex;flex-direction:column;gap:10px}
+  .spec{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+  .spec .k{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:.08em}
+  .spec .v{font-size:22px;font-weight:900;color:var(--dark)}
+
+  /* 仕様表 */
+  table.spec-table{width:100%;border-collapse:collapse;font-size:13px}
+  .spec-table th,.spec-table td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+  .spec-table th{background:#eef1f5;color:var(--dark);width:30%;font-weight:700}
+
+  /* CTA帯 */
+  .ctaband{background:var(--dark);color:#fff;border-radius:10px;padding:22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .ctaband .t{font-weight:900;font-size:18px}
+  .ctaband .ch{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+  .ctaband .ch a{background:#fff;color:var(--dark);border-radius:6px;padding:10px 16px;font-weight:700;font-size:13px}
+  .ctaband small{display:block;color:#c7cdd6;font-size:11.5px;margin-top:6px;width:100%}
+
+  /* パンくず */
+  .crumb{font-size:12px;color:var(--sub);margin-bottom:6px}
+
+  /* フッター模式 */
+  .mock-footer{background:var(--dark);color:#cdd3db;border-radius:10px;padding:24px}
+  .mock-footer .fcols{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .mock-footer h5{color:#fff;font-size:13px;margin-bottom:8px;border-bottom:1px solid #3a4654;padding-bottom:6px}
+  .mock-footer li{list-style:none;font-size:12px;color:#aeb6c0;padding:3px 0}
+
+  /* ドキュメントヘッダ */
+  .doc-head{background:var(--dark);color:#fff;padding:34px 0}
+  .doc-head h1{font-size:clamp(22px,3vw,30px);font-weight:900}
+  .doc-head p{color:#c7cdd6;font-size:13.5px;margin-top:8px}
+  .memo{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-top:-26px;position:relative;z-index:2}
+  .memo h4{font-size:14px;color:var(--dark);margin-bottom:10px;letter-spacing:.02em}
+  .memo .mgrid{display:grid;grid-template-columns:170px 1fr;gap:6px 18px;font-size:13px}
+  .memo .mgrid dt{font-weight:700;color:var(--accent)}
+  .memo .mgrid dd{color:var(--text)}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--sub)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{width:26px;height:14px;border-radius:3px;display:inline-block;border:1px solid var(--line2)}
+
+  .toc{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .toc a{font-size:12px;font-weight:700;background:#eef1f5;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--dark)}
+
+  @media(max-width:820px){
+    .g2,.g3,.g4,.g6{grid-template-columns:1fr}
+    .hero{grid-template-columns:1fr}
+    .mock-footer .fcols{grid-template-columns:1fr 1fr}
+    .memo .mgrid{grid-template-columns:1fr}
+    .mock-utils{width:100%;margin-left:0}
+    .ctaband .ch{margin-left:0;width:100%}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== ドキュメントヘッダ ========== -->
+<header class="doc-head">
+  <div class="container">
+    <h1>サカモト・ダイテム株式会社 ｜ サイトリニューアル ワイヤーフレーム</h1>
+    <p>WIREFRAME v1 ／ 構造・情報設計の確認用（配色・装飾は次工程デザイン課で適用）／ PC基準＋SP折返し対応</p>
+  </div>
+</header>
+
+<div class="container">
+  <!-- ===== 要件メモ ===== -->
+  <section class="memo">
+    <h4>■ 要件メモ（現サイト・要望・トンマナ参照先）</h4>
+    <dl class="mgrid">
+      <dt>クライアント</dt><dd>サカモト・ダイテム株式会社（屋号「モールドベースのパイオニア」）</dd>
+      <dt>現行サイト</dt><dd>https://www.ditem.co.jp/index.html （静的HTML中心・連番技術ページ群・iframeニュース・PDF多数）</dd>
+      <dt>業種</dt><dd>モールドベース（金型ベース）製造・販売。加工設備を持つ「機能する商社」。高精度・短納期・3次元CADデータからの製造が強み。</dd>
+      <dt>課題</dt><dd>技術資料は豊富だが情報が細分化されすぎ、ユーザーが「何を見ればよいか」毎回判断が必要。→ カテゴリハブ型IAへ統合。</dd>
+      <dt>主要要望</dt><dd>トップだけでなく下層（選ばれる理由／モールドベース・製品カテゴリ＋詳細／会社情報／お問い合わせ等）まで設計。探しやすさ・技術の伝わりやすさ・CTAの明快さを最優先。</dd>
+      <dt>問い合わせ運用</dt><dd>公開フォーム無し。TEL 03-3711-6531 ／ FAX 03-3793-6330 ／ Mail d.sakamoto.m-f-f-f-o@ditem.co.jp（回答目安：翌日〜5営業日）。新規フォーム導入を想定しつつTEL/FAX/Mailも併記。</dd>
+      <dt>CV設計</dt><dd>電話クリック／メールクリック／資料DLクリック を主要イベントとして計測前提で導線部品化。</dd>
+      <dt>トンマナ参照</dt><dd>方向性＝井上(大タイポで技術革新)×警視庁採用(強メッセージ構造)×リバネス(カテゴリ整理)。配色/フォントは企画書でサカモト専用に決定（スチール×フォージアンバー／Zen Kaku Gothic New＋IBM Plex Sans JP＋IBM Plex Mono）。※本WFはグレースケール構造案。</dd>
+      <dt>避けるもの</dt><dd>過度なアニメーション、黒背景ベース、CTA色乱用、写真だけで仕様説明を済ませる表現。</dd>
+    </dl>
+    <div class="legend">
+      <span><i class="sw" style="background:#e6eaef"></i>wire-box＝未確定の写真/図版（製品写真は支給待ち）</span>
+      <span><i class="sw" style="background:#fff7e8;border-color:#e7c982"></i>黄＝設計意図メモ</span>
+      <span><i class="sw" style="background:#1f2a36"></i>濃＝ヘッダ/フッタ/CTA帯（全ページ共通部品）</span>
+      <span><span class="lbl new" style="font-size:10px">★</span> 新規ページ</span>
+    </div>
+    <nav class="toc">
+      <a href="#p1">①TOP</a><a href="#p2">②選ばれる理由</a><a href="#p3">③カテゴリハブ</a>
+      <a href="#p4">④製品詳細</a><a href="#p5">⑤技術記事ハブ/詳細</a><a href="#p6">⑥会社情報</a>
+      <a href="#p7">⑦お知らせ</a><a href="#p8">⑧お問い合わせ</a><a href="#sm">サイトマップ</a>
+    </nav>
+  </section>
+</div>
+
+<main class="container" style="padding-top:36px">
+
+<!-- ============================================================ 共通ヘッダー -->
+<div class="note"><b>【全ページ共通：グローバルヘッダー】</b> ロゴ＋8項目ナビ＋ユーティリティ（サイト内検索・資料DL・お問い合わせ）。重心が最も大きい「モールドベース」「製品情報」をナビ中央に置き探索の起点に。SP時はロゴ＋ハンバーガー、TEL/お問い合わせを常時表示。<span class="sp">SP: 検索とお問い合わせを最優先で残し、ナビはドロワー格納。</span></div>
+<div class="mock-header" style="margin-bottom:30px">
+  <div class="mock-logo">SAKAMOTO･DITEM</div>
+  <nav class="mock-nav">
+    <span>選ばれる理由</span><span>モールドベース▾</span><span>製品情報▾</span><span>加工標準化提案</span><span>技術資料・お知らせ</span><span>会社情報</span>
+  </nav>
+  <div class="mock-utils">
+    <span class="pill">🔍 サイト内検索</span><span class="pill">⬇ 資料DL</span><span class="pill" style="background:#1f2a36;color:#fff;border-color:#1f2a36">お問い合わせ</span>
+  </div>
+</div>
+
+<!-- ============================================================ ① TOP -->
+<section id="p1" class="pagewrap">
+  <div class="pagebar"><span class="no">PAGE 01</span><h3>コーポレートホーム（TOP）</h3><span class="meta">テンプレ：コーポレートホーム ／ 優先度 P1</span></div>
+  <div class="pagebody">
+
+    <div class="note"><b>① ヒーロー</b>｜順序の意図：「何者か」と「どこへ行けばいいか」を3秒で。現行トップの“企業紹介とハブの兼任しすぎ”を、明快なメッセージ＋数値強み＋カテゴリ入口に再設計。<span class="sp">SP: コピー→数値→CTA→カテゴリ入口の縦積み。</span></div>
+    <div class="blk hero">
+      <div class="copy">
+        <div class="section-title" style="margin:0"><span class="en">STEEL &amp; SPEED</span></div>
+        <h1>鋼に、火を入れる。<br>図面が、形になる速さ。</h1>
+        <p class="sub">加工設備を持つモールドベースのパイオニア。標準も特殊も、高精度・短納期で一気通貫。</p>
+        <div class="ctas"><a class="btn">お問い合わせ</a><a class="btn ghost">資料をダウンロード</a><a class="btn ghost">製品を探す ▾</a></div>
+      </div>
+      <div class="specs">
+        <div class="spec"><div class="k">PRECISION</div><div class="v">±0.0○ mm</div></div>
+        <div class="spec"><div class="k">LEAD TIME</div><div class="v">最短 ○ 日</div></div>
+        <div class="spec"><div class="k">CAD DATA</div><div class="v">○ 形式対応</div></div>
+        <div class="wire-box" style="min-height:80px">設備/加工ビジュアル<br>（鋼グラデ＋図面グリッドのCSS主体／写真使用時はデュオトーン）</div>
+      </div>
+    </div>
+
+    <div class="note"><b>② 選ばれる理由（強み4枚）</b>｜比較検討の最初に差別化を提示。スペック羅列の前に「なぜサカモトか」を置く。</div>
+    <div class="blk">
+      <div class="grid g4">
+        <div class="card"><span class="lbl">01</span><p style="font-weight:700;margin:6px 0 4px">機能する商社</p><p class="ph">在庫＋自社加工で一気通貫</p></div>
+        <div class="card"><span class="lbl">02</span><p style="font-weight:700;margin:6px 0 4px">高精度・短納期</p><p class="ph">寸法保証・納期明示</p></div>
+        <div class="card"><span class="lbl">03</span><p style="font-weight:700;margin:6px 0 4px">3次元CAD対応</p><p class="ph">デジタル入稿〜製造</p></div>
+        <div class="card"><span class="lbl">04</span><p style="font-weight:700;margin:6px 0 4px">商材の幅</p><p class="ph">標準〜特殊＋周辺資材</p></div>
+      </div>
+    </div>
+
+    <div class="note"><b>③ モールドベース カテゴリ導線</b>｜現行IAの重心（最大の情報量）を最上位の探索動線へ。資料束→比較しやすいハブに。</div>
+    <div class="blk">
+      <div class="section-title"><span class="en">MOLD BASE</span><h2>モールドベース</h2></div>
+      <div class="grid g6">
+        <div class="wire-box">標準</div><div class="wire-box">特殊</div><div class="wire-box">大型</div>
+        <div class="wire-box">精密</div><div class="wire-box">ダイカスト</div><div class="wire-box">中国製</div>
+      </div>
+      <p class="ph" style="margin-top:10px">↳ 各カード＝サムネ＋用途1行＋「比較表で見る」。下に用途比較表へのリンク。</p>
+    </div>
+
+    <div class="note"><b>④ 製品情報 カテゴリ導線</b>｜周辺資材ニーズの受け皿。カタログ・PDF起点導線を整理。</div>
+    <div class="blk">
+      <div class="section-title"><span class="en">PRODUCTS</span><h2>製品情報</h2></div>
+      <div class="grid g4">
+        <div class="wire-box">アガトン</div><div class="wire-box">特殊鋼</div><div class="wire-box">特殊鋼プレート</div><div class="wire-box">金型用部品</div>
+        <div class="wire-box">電極関連</div><div class="wire-box">コアダイス</div><div class="wire-box">NTカバー</div><div class="wire-box ph">すべての製品 ▸</div>
+      </div>
+    </div>
+
+    <div class="note"><b>⑤ 設備・対応力</b>｜技術信頼の裏付け。保有設備・対応CAD・精度/サイズ/納期レンジを数値で。データ根拠でBtoBの安心感。</div>
+    <div class="blk grid g2">
+      <div class="wire-box" style="min-height:200px">設備・工場ビジュアル</div>
+      <table class="spec-table">
+        <tr><th>保有設備</th><td>（CNC／マシニング 等）テキストが入ります。</td></tr>
+        <tr><th>対応精度</th><td>±0.0○ mm</td></tr>
+        <tr><th>対応サイズ</th><td>○○○×○○○ まで</td></tr>
+        <tr><th>対応CAD</th><td>○○／○○／STEP 等</td></tr>
+        <tr><th>標準納期</th><td>最短 ○ 日</td></tr>
+      </table>
+    </div>
+
+    <div class="note"><b>⑥ 加工標準化提案（技術記事）</b>｜SEO集客と技術訴求の両取り。“理由ページ”的に再構成。</div>
+    <div class="blk grid g3">
+      <div class="card"><span class="lbl">記事</span><p class="ph" style="margin-top:8px">エジェクタ穴の標準化…テキストが入ります。</p></div>
+      <div class="card"><span class="lbl">記事</span><p class="ph" style="margin-top:8px">ランナー設計の考え方…テキストが入ります。</p></div>
+      <div class="card"><span class="lbl">記事</span><p class="ph" style="margin-top:8px">ポケット加工の精度…テキストが入ります。</p></div>
+    </div>
+
+    <div class="note"><b>⑦ お知らせ／技術資料</b>｜更新性の可視化。iframe依存を脱し一覧化。重要PDFと“資料置き場”を峻別。</div>
+    <div class="blk">
+      <ul style="list-style:none">
+        <li style="border-bottom:1px dashed var(--line);padding:10px 0"><span class="lbl">お知らせ</span> 2026.0○.○○　テキストが入ります。</li>
+        <li style="border-bottom:1px dashed var(--line);padding:10px 0"><span class="lbl new">★資料</span> 2026.0○.○○　総合カタログ（PDF）を更新しました。<a class="btn amber" style="min-height:34px;float:right">⬇ DL</a></li>
+        <li style="padding:10px 0"><span class="lbl">お知らせ</span> 2026.0○.○○　テキストが入ります。</li>
+      </ul>
+    </div>
+
+    <div class="note"><b>⑧ 会社情報サマリ</b>｜信用補完。商談前の最終後押し（代表メッセージ抜粋／沿革／拠点／品質・環境）。</div>
+    <div class="blk grid g2">
+      <div class="wire-box" style="min-height:160px">会社/商談ビジュアル</div>
+      <div><p style="font-weight:700">「モールドベースのパイオニア」として。</p><p class="ph" style="margin-top:6px">代表メッセージ抜粋…テキストが入ります。テキストが入ります。</p><a class="btn ghost" style="margin-top:10px">会社情報を見る ▸</a></div>
+    </div>
+
+    <div class="note"><b>⑨ CTA帯（全ページ共通・末尾＋SP追従）</b>｜CVを取りこぼさない固定部品。電話/メール/資料DL/問い合わせ＋回答目安を明記。3つのクリックを計測イベント化。</div>
+    <div class="blk">
+      <div class="ctaband">
+        <div class="t">図面のご相談・お見積り、お気軽に。</div>
+        <div class="ch"><a>☎ 03-3711-6531</a><a>✉ メールで相談</a><a>⬇ 資料DL</a><a>お問い合わせフォーム</a></div>
+        <small>回答目安：翌日〜5営業日以内 ／ FAX 03-3793-6330</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ ② 選ばれる理由 -->
+<section id="p2" class="pagewrap">
+  <div class="pagebar"><span class="no">PAGE 02</span><h3>選ばれる理由（強みページ）</h3><span class="meta">テンプレ：強みページ ／ 優先度 P1</span></div>
+  <div class="pagebody">
+    <p class="crumb">ホーム ＞ 選ばれる理由</p>
+    <div class="note"><b>構成意図</b>：差別化4軸を「主張→根拠（数値/設備/対応CAD）→資料/動画→FAQ→CTA」の順で深掘り。比較検討層の不安を順に解消する。</div>
+    <div class="blk">
+      <div class="section-title"><span class="en">WHY SAKAMOTO</span><h2>選ばれる理由</h2><p>リード文1行：機能する商社としての一気通貫力を端的に。</p></div>
+      <div class="grid g2">
+        <div class="card"><span class="lbl">01 機能する商社</span><div class="wire-box" style="margin:10px 0">設備/在庫ビジュアル</div><p class="ph">在庫＋自社加工の一気通貫…テキストが入ります。</p></div>
+        <div class="card"><span class="lbl">02 高精度・短納期</span><div class="wire-box" style="margin:10px 0">加工中の手元ビジュアル</div><p class="ph">寸法保証・納期明示…テキストが入ります。</p></div>
+        <div class="card"><span class="lbl">03 3次元CAD対応</span><div class="wire-box" style="margin:10px 0">CAD/図面ビジュアル</div><p class="ph">対応CAD・データ形式…テキストが入ります。</p></div>
+        <div class="card"><span class="lbl">04 商材の幅</span><div class="wire-box" style="margin:10px 0">製品群ビジュアル</div><p class="ph">標準〜特殊＋周辺資材…テキストが入ります。</p></div>
+      </div>
+    </div>
+    <div class="blk">
+      <div class="section-title"><span class="en">FAQ</span><h2>よくあるご質問</h2></div>
+      <div class="card" style="margin-bottom:8px">Q. 短納期はどの程度対応可能ですか？　<span class="ph">▾ テキストが入ります。</span></div>
+      <div class="card" style="margin-bottom:8px">Q. 対応しているCADデータ形式は？　<span class="ph">▾ テキストが入ります。</span></div>
+      <div class="card">Q. 特殊形状・大型にも対応できますか？　<span class="ph">▾ テキストが入ります。</span></div>
+    </div>
+    <div class="ctaband"><div class="t">条件を伝えて、見積を取る。</div><div class="ch"><a>☎ 電話</a><a>✉ メール</a><a>⬇ 資料DL</a></div><small>回答目安：翌日〜5営業日以内</small></div>
+  </div>
+</section>
+
+<!-- ============================================================ ③ カテゴリハブ -->
+<section id="p3" class="pagewrap">
+  <div class="pagebar"><span class="no">PAGE 03</span><h3>カテゴリハブ（モールドベース／製品情報 共通テンプレ）</h3><span class="meta">テンプレ：カテゴリハブ ／ 優先度 P1</span></div>
+  <div class="pagebody">
+    <p class="crumb">ホーム ＞ モールドベース</p>
+    <div class="note"><b>構成意図</b>：このページの仕事は「比較して選ばせる」こと。カテゴリカード→<b>用途比較表</b>→関連資料→FAQ→CTAの順。連番ページの中身は詰め込まず詳細テンプレへ送る。<span class="sp">SP: 比較表は横スクロール表に。</span></div>
+    <div class="blk">
+      <div class="section-title"><span class="en">MOLD BASE</span><h2>モールドベース</h2><p>標準から特殊・大型・精密・ダイカスト・中国製まで。用途で選べます。</p></div>
+      <div class="grid g3">
+        <div class="card"><div class="wire-box">標準</div><p style="font-weight:700;margin-top:8px">標準モールドベース</p><p class="ph">用途1行。<a> 詳細 ▸</a></p></div>
+        <div class="card"><div class="wire-box">特殊</div><p style="font-weight:700;margin-top:8px">特殊モールドベース</p><p class="ph">用途1行。<a> 詳細 ▸</a></p></div>
+        <div class="card"><div class="wire-box">大型</div><p style="font-weight:700;margin-top:8px">大型モールドベース</p><p class="ph">用途1行。<a> 詳細 ▸</a></p></div>
+        <div class="card"><div class="wire-box">精密</div><p style="font-weight:700;margin-top:8px">精密モールドベース</p><p class="ph">用途1行。<a> 詳細 ▸</a></p></div>
+        <div class="card"><div class="wire-box">ダイカスト</div><p style="font-weight:700;margin-top:8px">ダイカスト用</p><p class="ph">用途1行。<a> 詳細 ▸</a></p></div>
+        <div class="card"><div class="wire-box">中国製</div><p style="font-weight:700;margin-top:8px">中国製</p><p class="ph">用途1行。<a> 詳細 ▸</a></p></div>
+      </div>
+    </div>
+    <div class="blk">
+      <div class="section-title"><span class="en">COMPARISON</span><h2>用途比較表</h2></div>
+      <table class="spec-table">
+        <tr><th>種類</th><th style="width:auto">用途</th><th style="width:18%">精度</th><th style="width:18%">納期目安</th></tr>
+        <tr><td>標準</td><td class="ph">テキストが入ります。</td><td class="ph">○</td><td class="ph">○日</td></tr>
+        <tr><td>精密</td><td class="ph">テキストが入ります。</td><td class="ph">◎</td><td class="ph">○日</td></tr>
+        <tr><td>大型</td><td class="ph">テキストが入ります。</td><td class="ph">○</td><td class="ph">○日</td></tr>
+      </table>
+    </div>
+    <div class="blk grid g2">
+      <div class="card"><b>関連資料</b><p class="ph" style="margin-top:6px">⬇ カタログ（PDF）／⬇ 仕様一覧（PDF）</p></div>
+      <div class="card"><b>FAQ</b><p class="ph" style="margin-top:6px">選び方／納期／データ入稿について</p></div>
+    </div>
+    <div class="ctaband"><div class="t">どれを選ぶべきか相談する。</div><div class="ch"><a>☎ 電話</a><a>✉ メール</a><a>⬇ 資料DL</a></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ ④ 製品詳細 -->
+<section id="p4" class="pagewrap">
+  <div class="pagebar"><span class="no">PAGE 04</span><h3>製品詳細テンプレ（モールドベース／製品 共通）</h3><span class="meta">テンプレ：製品詳細 ／ 優先度 P1</span></div>
+  <div class="pagebody">
+    <p class="crumb">ホーム ＞ モールドベース ＞ 精密モールドベース</p>
+    <div class="note"><b>構成意図</b>：ページのゴールは「商談化」。概要→<b>仕様表</b>→納期→設備写真→関連PDF→問い合わせ。スペックは表で一覧性を担保し、各製品で同じ並びにして比較負荷を下げる。</div>
+    <div class="blk grid g2">
+      <div class="wire-box" style="min-height:240px">製品写真が入ります。<br>（支給待ち／複数アングル）</div>
+      <div>
+        <div class="section-title"><span class="en">PRODUCT</span><h2>精密モールドベース</h2><p>概要リード：用途・特長を2〜3行で。</p></div>
+        <div class="ctas" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn">この製品を問い合わせる</a><a class="btn amber">⬇ 仕様PDF</a></div>
+      </div>
+    </div>
+    <div class="blk">
+      <div class="section-title"><span class="en">SPEC</span><h2>仕様</h2></div>
+      <table class="spec-table">
+        <tr><th>型番</th><td class="ph">SP-○○○○</td></tr>
+        <tr><th>対応サイズ</th><td class="ph">○○○×○○○ mm</td></tr>
+        <tr><th>材質</th><td class="ph">テキストが入ります。</td></tr>
+        <tr><th>精度</th><td class="ph">±0.0○ mm</td></tr>
+        <tr><th>納期目安</th><td class="ph">最短 ○ 日</td></tr>
+        <tr><th>対応CAD</th><td class="ph">○○／STEP 等</td></tr>
+      </table>
+    </div>
+    <div class="blk grid g3">
+      <div class="card"><b>設備・加工</b><div class="wire-box" style="margin-top:8px">設備写真</div></div>
+      <div class="card"><b>関連資料</b><p class="ph" style="margin-top:8px">⬇ 仕様書／⬇ 図面サンプル</p></div>
+      <div class="card"><b>関連製品</b><p class="ph" style="margin-top:8px">標準／大型 へのリンク</p></div>
+    </div>
+    <div class="ctaband"><div class="t">この製品について問い合わせる。</div><div class="ch"><a>☎ 電話</a><a>✉ メール</a><a>フォーム</a></div><small>回答目安：翌日〜5営業日以内</small></div>
+  </div>
+</section>
+
+<!-- ============================================================ ⑤ 技術記事ハブ/詳細 -->
+<section id="p5" class="pagewrap">
+  <div class="pagebar"><span class="no">PAGE 05</span><h3>加工標準化提案 — 技術記事ハブ＆詳細</h3><span class="meta">テンプレ：技術記事ハブ／詳細 ／ 優先度 P2</span></div>
+  <div class="pagebody">
+    <p class="crumb">ホーム ＞ 加工標準化提案</p>
+    <div class="note"><b>構成意図（ハブ）</b>：SEOの受け皿。概要→記事一覧（カテゴリ）→資料DL→相談CTA。連番技術ページ群はここの記事/関連記事として再配置し、トップを汚さない。</div>
+    <div class="blk">
+      <div class="section-title"><span class="en">TECHNOLOGY</span><h2>加工標準化提案</h2><p>標準化の考え方リード1行。</p></div>
+      <div class="grid g3">
+        <div class="card"><div class="wire-box">図解</div><p style="font-weight:700;margin-top:8px">エジェクタ穴の標準化</p><p class="ph">概要1行 ▸</p></div>
+        <div class="card"><div class="wire-box">図解</div><p style="font-weight:700;margin-top:8px">ランナー設計</p><p class="ph">概要1行 ▸</p></div>
+        <div class="card"><div class="wire-box">図解</div><p style="font-weight:700;margin-top:8px">ポケット加工</p><p class="ph">概要1行 ▸</p></div>
+      </div>
+    </div>
+    <div class="note"><b>構成意図（詳細）</b>：深掘りページ。背景→規格→図表→PDF→関連ページ→CTA。図表を主役にし、本文は根拠を添える。</div>
+    <div class="blk grid g2">
+      <div>
+        <div class="section-title"><span class="en">ARTICLE</span><h2>エジェクタ穴の標準化</h2></div>
+        <p class="ph"><b>背景</b>：テキストが入ります。<br><b>規格</b>：テキストが入ります。<br><b>関連</b>：精密モールドベース ／ 仕様PDF</p>
+      </div>
+      <div class="wire-box" style="min-height:200px">図表・工程図解が入ります。</div>
+    </div>
+    <div class="ctaband"><div class="t">技術的なご相談はこちら。</div><div class="ch"><a>☎ 電話</a><a>✉ メール</a><a>⬇ 技術資料DL</a></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ ⑥ 会社情報 -->
+<section id="p6" class="pagewrap">
+  <div class="pagebar"><span class="no">PAGE 06</span><h3>会社情報（会社概要・沿革・拠点）</h3><span class="meta">テンプレ：会社情報 ／ 優先度 P2</span></div>
+  <div class="pagebody">
+    <p class="crumb">ホーム ＞ 会社情報</p>
+    <div class="note"><b>構成意図</b>：信用補完。代表メッセージ→会社概要表→沿革→事業所/拠点→品質・環境→CTA。商談前の最終後押し。<b>金型保管（新規停止中）は主導線から外し、この中の補足扱い</b>。</div>
+    <div class="blk grid g2">
+      <div class="wire-box" style="min-height:160px">代表／会社ビジュアル</div>
+      <div><div class="section-title"><span class="en">MESSAGE</span><h2>代表メッセージ</h2></div><p class="ph">テキストが入ります。テキストが入ります。テキストが入ります。</p></div>
+    </div>
+    <div class="blk">
+      <div class="section-title"><span class="en">COMPANY</span><h2>会社概要</h2></div>
+      <table class="spec-table">
+        <tr><th>商号</th><td>サカモト・ダイテム株式会社</td></tr>
+        <tr><th>事業内容</th><td class="ph">モールドベース製造・販売 ほか</td></tr>
+        <tr><th>所在地</th><td class="ph">テキストが入ります。</td></tr>
+        <tr><th>TEL / FAX</th><td>03-3711-6531 ／ 03-3793-6330</td></tr>
+        <tr><th>沿革</th><td class="ph">年表が入ります。</td></tr>
+      </table>
+    </div>
+    <div class="blk grid g3">
+      <div class="card"><b>拠点・事業所</b><div class="wire-box" style="margin-top:8px">地図/外観</div></div>
+      <div class="card"><b>品質・環境</b><p class="ph" style="margin-top:8px">認証・方針…テキストが入ります。</p></div>
+      <div class="card"><b>金型保管（参考）</b><p class="ph" style="margin-top:8px">※新規案件停止中の旨を明記。</p></div>
+    </div>
+    <div class="ctaband"><div class="t">お取引のご相談はこちら。</div><div class="ch"><a>☎ 電話</a><a>✉ メール</a><a>フォーム</a></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ ⑦ お知らせ -->
+<section id="p7" class="pagewrap">
+  <div class="pagebar"><span class="no">PAGE 07</span><h3>お知らせ・技術資料（ニュース）</h3><span class="meta">テンプレ：ニュース ／ 優先度 P2</span></div>
+  <div class="pagebody">
+    <p class="crumb">ホーム ＞ 技術資料・お知らせ</p>
+    <div class="note"><b>構成意図</b>：更新性の可視化。<b>カテゴリ絞り込み</b>＋一覧＋詳細。現行のiframe/PDF散在を脱し、「お知らせ」と「資料DL」を峻別して並べる。</div>
+    <div class="blk">
+      <div class="section-title"><span class="en">NEWS</span><h2>お知らせ・技術資料</h2></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px"><span class="pill">すべて</span><span class="pill">お知らせ</span><span class="pill">資料DL</span><span class="pill">技術記事</span></div>
+      <ul style="list-style:none">
+        <li style="border-bottom:1px dashed var(--line);padding:12px 0"><span class="lbl">お知らせ</span> 2026.0○.○○　テキストが入ります。</li>
+        <li style="border-bottom:1px dashed var(--line);padding:12px 0"><span class="lbl new">★資料</span> 2026.0○.○○　総合カタログを更新 <a class="btn amber" style="min-height:32px;float:right">⬇ DL</a></li>
+        <li style="border-bottom:1px dashed var(--line);padding:12px 0"><span class="lbl">技術</span> 2026.0○.○○　新しい技術記事を公開しました。</li>
+        <li style="padding:12px 0"><span class="lbl">お知らせ</span> 2026.0○.○○　テキストが入ります。</li>
+      </ul>
+      <div style="text-align:center;margin-top:14px"><span class="pill">‹ 1 2 3 ›</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ⑧ お問い合わせ -->
+<section id="p8" class="pagewrap">
+  <div class="pagebar"><span class="no">PAGE 08</span><h3>お問い合わせ（フォーム＋電話/メール/FAX）</h3><span class="meta">テンプレ：問い合わせ ／ 優先度 P1（CV）</span></div>
+  <div class="pagebody">
+    <p class="crumb">ホーム ＞ お問い合わせ</p>
+    <div class="note"><b>構成意図</b>：CVページ。<b>問い合わせ種別の選択</b>→フォーム→同意→完了画面の動線。現行はTEL/FAX/Mailのみのため、フォームは新規導入想定で設計しつつ電話/メール/FAX導線も対等に併記。回答目安を明示し不安を消す。<span class="sp">SP: 電話タップを最上部に固定表示。</span></div>
+    <div class="blk grid g2">
+      <div>
+        <div class="section-title"><span class="en">CONTACT</span><h2>お問い合わせ</h2></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px"><span class="pill">見積依頼</span><span class="pill">製品について</span><span class="pill">技術相談</span><span class="pill">その他</span></div>
+        <div class="card" style="margin-bottom:8px"><span class="ph">会社名 ［　　　　　　　　　　　］</span></div>
+        <div class="card" style="margin-bottom:8px"><span class="ph">ご担当者名 ［　　　　　　　　　］</span></div>
+        <div class="card" style="margin-bottom:8px"><span class="ph">メール ［　　　　　　　　　　　］</span></div>
+        <div class="card" style="margin-bottom:8px"><span class="ph">お問い合わせ内容 ［　　　　　　　　　　　　　　　　　　　］</span></div>
+        <div class="card" style="margin-bottom:12px"><span class="ph">☐ プライバシーポリシーに同意する</span></div>
+        <a class="btn" style="width:100%">この内容で送信する</a>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:12px">
+          <b>お電話・FAX・メールでも承ります</b>
+          <p style="margin-top:8px">☎ <b>03-3711-6531</b></p>
+          <p>📠 FAX 03-3793-6330</p>
+          <p>✉ d.sakamoto.m-f-f-f-o@ditem.co.jp</p>
+          <p class="ph" style="margin-top:8px">回答目安：翌日〜5営業日以内</p>
+        </div>
+        <div class="card"><b>⬇ 資料ダウンロード</b><p class="ph" style="margin-top:6px">総合カタログ・仕様一覧（フォーム無しでもDL可）</p></div>
+        <div class="note" style="margin-top:12px">完了画面：送信後はサンクスページで受付番号と回答目安、関連資料DLを案内（離脱防止）。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 共通フッター / サイトマップ -->
+<section id="sm" style="margin-bottom:40px">
+  <div class="note"><b>【全ページ共通：フッター＝サイトマップ全展開】</b> 病院WF流の「フッターは詳細サイトマップ型」を踏襲。全ページへ最短到達できるよう8ナビ単位で全リンクを展開。★＝新規ページ。</div>
+  <div class="mock-footer">
+    <div class="fcols">
+      <div><h5>選ばれる理由 ★</h5><ul><li>機能する商社</li><li>高精度・短納期</li><li>3次元CAD対応</li><li>商材の幅</li></ul></div>
+      <div><h5>モールドベース</h5><ul><li>標準 / 特殊 / 大型</li><li>精密 / ダイカスト</li><li>中国製</li><li>用途比較表 ★</li></ul></div>
+      <div><h5>製品情報</h5><ul><li>アガトン / 特殊鋼</li><li>特殊鋼プレート</li><li>金型用部品 / 電極</li><li>コアダイス / NTカバー</li></ul></div>
+      <div><h5>技術・会社</h5><ul><li>加工標準化提案 ★</li><li>技術資料・お知らせ</li><li>会社情報 / 沿革 / 拠点</li><li>品質・環境</li></ul></div>
+      <div><h5>お問い合わせ</h5><ul><li>フォーム ★</li><li>☎ 03-3711-6531</li><li>FAX 03-3793-6330</li><li>資料ダウンロード</li></ul></div>
+    </div>
+    <p style="border-top:1px solid #3a4654;margin-top:18px;padding-top:14px;font-size:11.5px;color:#8b94a0">プライバシーポリシー ／ サイトマップ ／ © SAKAMOTO･DITEM CO., LTD.</p>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

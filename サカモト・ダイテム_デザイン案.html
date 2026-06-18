@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サカモト・ダイテム株式会社 ｜ モールドベースのパイオニア</title>
+<meta name="description" content="加工設備を持つモールドベースのパイオニア。標準・特殊・大型・精密、高精度かつ短納期で一気通貫。3次元CADデータからの製造に対応。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --steel:#22303C; --steel-2:#2b3c4c; --steel-3:#33485a;
+  --amber:#00B000; --amber-d:#008A00; --amber-soft:#E1F4E1;
+  --silver:#8A99A6; --silver-line:#d3dbe2; --silver-fill:#E4E8EB;
+  --paper:#FFFFFF; --paper-2:#EEF7EE; --white:#ffffff;
+  --ink:#1A2228; --muted:#5d6b78;
+  --maxw:1180px;
+  --blueprint:linear-gradient(rgba(138,153,166,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(138,153,166,.10) 1px,transparent 1px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:"Zen Kaku Gothic New",sans-serif;line-height:1.34;font-weight:900;letter-spacing:.01em}
+.wrap{width:min(var(--maxw),92%);margin:0 auto}
+.mono{font-family:"Noto Sans JP",monospace}
+.en{font-family:"Noto Sans JP",monospace;color:var(--amber);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+
+/* ===== Header ===== */
+.hd{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--silver-line)}
+.hd-in{display:flex;align-items:center;gap:26px;height:72px}
+.brand{display:flex;flex-direction:column;line-height:1.05;color:var(--ink)}
+.brand b{font-family:"Zen Kaku Gothic New";font-size:20px;font-weight:900;letter-spacing:.02em}
+.brand span{font-family:"Noto Sans JP";font-size:9.5px;letter-spacing:.28em;color:var(--silver)}
+.gnav{display:flex;gap:22px;margin-left:8px}
+.gnav a{color:var(--muted);font-size:13.5px;font-weight:500;position:relative;padding:4px 0;transition:color .2s}
+.gnav a:hover{color:var(--amber-d)}
+.gnav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--amber);transition:width .25s}
+.gnav a:hover::after{width:100%}
+.hd-cta{margin-left:auto;display:flex;align-items:center;gap:12px}
+.hd-tel{color:var(--ink);font-family:"Noto Sans JP";font-weight:600;font-size:15px}
+.hd-tel small{display:block;font-size:9px;letter-spacing:.18em;color:var(--silver);font-family:"Noto Sans JP"}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:14px;padding:0 22px;height:46px;border-radius:4px;transition:transform .18s,background .2s,box-shadow .2s;border:1px solid transparent;font-family:"Zen Kaku Gothic New"}
+.btn-amber{background:var(--amber);color:var(--ink);box-shadow:0 6px 18px -8px rgba(0,176,0,.7)}
+.btn-amber:hover{background:var(--amber-d);color:#fff;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--silver-line)}
+.btn-ghost:hover{border-color:var(--amber);background:var(--amber-soft)}
+.btn-line{background:#fff;color:var(--steel);border-color:var(--silver-line)}
+.btn-line:hover{border-color:var(--steel);transform:translateY(-2px)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+/* ===== Hero ===== */
+.hero{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden;color:var(--ink);border-bottom:1px solid var(--silver-line)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;animation:heroZoom 14s ease-out both}
+@keyframes heroZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(247,250,243,.62) 0%,rgba(247,250,243,.18) 45%,rgba(0,176,0,.06) 80%,rgba(0,176,0,.12) 100%)}
+/* ちょい一工夫：図面グリッドのオーバーレイ */
+.hero::before{content:"";position:absolute;inset:0;z-index:2;background-image:var(--blueprint);background-size:40px 40px;opacity:.3;mix-blend-mode:multiply;pointer-events:none}
+.hero-in{position:relative;z-index:3;padding:96px 0}
+/* キャッチが入る四角：製図タイトルブロック風パネル */
+.hero-panel{position:relative;max-width:600px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--silver-line);border-left:5px solid var(--amber);border-radius:4px;padding:40px 44px;box-shadow:0 28px 70px -32px rgba(34,48,60,.6);animation:heroUp .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+/* 内側のハーフライン枠＋製図用紙の方眼テクスチャ */
+.hero-panel::before{content:"";position:absolute;inset:9px;border:1px solid var(--silver-line);border-radius:2px;background-image:var(--blueprint);background-size:19px 19px;pointer-events:none}
+/* 製図の寸法線（左マージン・端末ティック付き） */
+.hero-panel .dim{position:absolute;left:21px;top:74px;bottom:88px;width:1px;background:var(--amber);opacity:.55;pointer-events:none;z-index:0}
+.hero-panel .dim::before,.hero-panel .dim::after{content:"";position:absolute;left:-4px;width:9px;height:1px;background:var(--amber)}
+.hero-panel .dim::before{top:0}
+.hero-panel .dim::after{bottom:0}
+/* 四隅の黄緑コーナーチック（図面のクロップマーク） */
+.hero-panel::after{content:"";position:absolute;inset:4px;pointer-events:none;background:
+   linear-gradient(var(--amber),var(--amber)) left top/15px 2px no-repeat,
+   linear-gradient(var(--amber),var(--amber)) left top/2px 15px no-repeat,
+   linear-gradient(var(--amber),var(--amber)) right top/15px 2px no-repeat,
+   linear-gradient(var(--amber),var(--amber)) right top/2px 15px no-repeat,
+   linear-gradient(var(--amber),var(--amber)) left bottom/15px 2px no-repeat,
+   linear-gradient(var(--amber),var(--amber)) left bottom/2px 15px no-repeat,
+   linear-gradient(var(--amber),var(--amber)) right bottom/15px 2px no-repeat,
+   linear-gradient(var(--amber),var(--amber)) right bottom/2px 15px no-repeat}
+.hero-panel>*{position:relative;z-index:1}
+/* 見出し上のラベル＝タイトルブロックの罫線で区切る */
+.hero .eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--amber-d);margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid var(--silver-line)}
+.hero .eyebrow::before{content:"";width:28px;height:2px;background:var(--amber)}
+.hero h1{font-size:clamp(25px,3.2vw,40px);font-weight:900;line-height:1.46;letter-spacing:.01em}
+.hero h1 .ln{display:block;white-space:nowrap}
+.hero h1 .am{color:var(--amber-d)}
+/* 工夫：製図のタイトルブロック風フッター */
+.hero .titleblock{display:flex;align-items:center;margin-top:26px;border-top:1px solid var(--silver-line);font-size:10px;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.hero .titleblock span{padding:11px 13px;border-right:1px solid var(--silver-line);white-space:nowrap}
+.hero .titleblock span:first-child{padding-left:2px}
+.hero .titleblock .rev{border-right:none;color:var(--amber-d);margin-left:auto;padding-right:2px}
+.hero .lead{margin-top:20px;font-size:clamp(14.5px,1.5vw,17px);color:var(--muted);max-width:520px;font-weight:400;line-height:1.9}
+.hero .acts{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+
+/* ===== Section base ===== */
+.sec{padding:88px 0}
+.sec.paper2{background:var(--paper-2)}
+.sec.steel{background:var(--paper-2);color:var(--ink)}
+.sec-head{margin-bottom:40px;max-width:760px}
+.sec-head .en{display:block;margin-bottom:10px}
+.sec-head h2{font-size:clamp(26px,3.6vw,40px)}
+.sec.steel .sec-head h2{color:var(--ink)}
+.sec-head p{margin-top:14px;color:var(--muted);font-size:15px}
+.sec.steel .sec-head p{color:var(--muted)}
+
+/* ===== Strength cards ===== */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.str{background:var(--white);border:1px solid var(--silver-line);border-radius:10px;padding:26px 22px;transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;overflow:hidden}
+.str::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.str:hover{transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(34,48,60,.5);border-color:var(--silver)}
+.str:hover::before{transform:scaleX(1)}
+.str .no{font-family:"Noto Sans JP";font-size:13px;color:var(--amber);font-weight:600}
+.str h3{font-size:19px;margin:10px 0 8px}
+.str p{font-size:14px;color:var(--muted)}
+
+/* ===== Category cards ===== */
+.cat{background:var(--white);border:1px solid var(--silver-line);border-radius:10px;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.cat:hover{transform:translateY(-5px);box-shadow:0 20px 40px -24px rgba(34,48,60,.55)}
+.cat .thumb{aspect-ratio:4/3;position:relative;overflow:hidden;background:#e9edf1;border-bottom:1px solid var(--silver-line)}
+.cat .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cat:hover .thumb img{transform:scale(1.06)}
+.cat .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,28,24,0) 42%,rgba(20,28,24,.55))}
+.cat .thumb b{position:absolute;left:16px;bottom:13px;z-index:2;font-family:"Zen Kaku Gothic New";font-size:23px;color:#fff;font-weight:900;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.cat .body{padding:16px 18px;flex:1;display:flex;flex-direction:column;gap:6px}
+.cat .body p{font-size:13px;color:var(--muted)}
+.cat .more{margin-top:auto;font-family:"Noto Sans JP";font-size:12px;color:var(--amber);font-weight:600}
+.cat:hover .more{text-decoration:underline}
+
+/* product hub small chips */
+.pchip{background:var(--white);border:1px solid var(--silver-line);border-radius:8px;padding:14px;display:flex;align-items:center;gap:14px;transition:.2s}
+.pchip:hover{border-color:var(--amber);transform:translateY(-3px);box-shadow:0 14px 30px -22px rgba(34,48,60,.5)}
+.pchip img{width:56px;height:56px;flex:none;border-radius:6px;object-fit:cover;border:1px solid var(--silver-line);background:#eef1f4}
+.pchip .pt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.pchip.all{justify-content:center;text-align:center;border-style:dashed}
+.pchip b{font-size:15px}
+.pchip span{font-size:12px;color:var(--muted)}
+
+/* ===== Equipment / data ===== */
+.equip{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.equip .visual{border-radius:12px;overflow:hidden;border:1px solid var(--silver-line);position:relative;aspect-ratio:16/11}
+.equip .visual img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) contrast(1.05)}
+.equip .visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(34,48,60,.55))}
+.dtable{width:100%;border-collapse:collapse}
+.dtable tr{border-bottom:1px solid var(--silver-line)}
+.dtable th{text-align:left;padding:15px 4px;font-family:"Noto Sans JP";font-size:12px;letter-spacing:.1em;color:var(--muted);font-weight:500;width:38%;vertical-align:top}
+.dtable td{padding:15px 4px;font-size:15px;color:var(--ink)}
+.dtable td b{font-family:"Noto Sans JP";color:var(--amber);font-size:22px;font-weight:600}
+
+/* ===== Articles ===== */
+.art{background:var(--white);border:1px solid var(--silver-line);border-radius:10px;padding:24px;transition:.2s}
+.art:hover{border-color:var(--amber);box-shadow:0 14px 30px -22px rgba(34,48,60,.5)}
+.art .tag{font-family:"Noto Sans JP";font-size:11px;color:var(--amber);letter-spacing:.1em}
+.art h3{font-size:17px;margin:8px 0}
+.art p{font-size:13.5px;color:var(--muted)}
+
+/* ===== News ===== */
+.news-row{display:flex;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--silver-line);flex-wrap:wrap}
+.news-row time{font-family:"Noto Sans JP";font-size:13px;color:var(--muted);min-width:96px}
+.news-row .nt{font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px;background:var(--steel);color:#fff;font-family:"Zen Kaku Gothic New"}
+.news-row .nt.dl{background:var(--amber)}
+.news-row p{font-size:14.5px;flex:1;min-width:200px}
+
+/* ===== Company strip ===== */
+.cstrip{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cstrip .ph{border-radius:12px;overflow:hidden;aspect-ratio:16/10;border:1px solid var(--silver-line)}
+.cstrip .ph img{width:100%;height:100%;object-fit:cover}
+.cstrip h2{font-size:clamp(24px,3vw,34px)}
+.cstrip p{color:var(--muted);margin:16px 0 22px}
+
+/* ===== CTA band ===== */
+.ctaband{background:linear-gradient(120deg,#D7F2D7,#F2FBF2);color:var(--ink);border:1px solid var(--silver-line);border-radius:16px;padding:46px;position:relative;overflow:hidden}
+.ctaband::before{content:"";position:absolute;inset:0;background-image:var(--blueprint);background-size:36px 36px;opacity:.5}
+.ctaband .inner{position:relative;z-index:2;display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+.ctaband h2{font-size:clamp(22px,3vw,32px)}
+.ctaband p{color:var(--muted);margin-top:8px;font-size:14px}
+.ctaband .ch{margin-left:auto;display:flex;gap:12px;flex-wrap:wrap}
+.ch a{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:150px;padding:14px 18px;border-radius:8px;background:var(--white);border:1px solid var(--silver-line);transition:.2s}
+.ch a:hover{background:var(--amber);color:var(--ink);transform:translateY(-3px)}
+.ch a .big{font-family:"Noto Sans JP";font-size:18px;font-weight:600}
+.ch a small{font-size:11px;color:var(--silver)}
+.ch a:hover small{color:var(--muted)}
+.ch a.amber{background:var(--amber);border-color:var(--amber)}
+.ch a.amber:hover{background:#fff;color:var(--amber-d)}
+
+/* ===== Footer ===== */
+.ft{background:var(--paper-2);color:var(--muted);padding:64px 0 28px;border-top:1px solid var(--silver-line)}
+.ft-top{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:30px}
+.ft .brand b{color:var(--ink)}
+.ft-desc{font-size:13px;margin-top:14px;color:var(--muted);max-width:280px}
+.ft h5{color:var(--ink);font-size:13px;font-family:"Zen Kaku Gothic New";margin-bottom:14px;letter-spacing:.04em;border-left:3px solid var(--amber);padding-left:9px}
+.ft ul{list-style:none}
+.ft li{padding:5px 0}
+.ft li a{font-size:13px;color:var(--muted);transition:.2s}
+.ft li a:hover{color:var(--amber-d);padding-left:4px}
+.ft-bottom{margin-top:44px;padding-top:20px;border-top:1px solid var(--silver-line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);font-family:"Noto Sans JP"}
+
+/* sticky mobile cta */
+.mcta{display:none}
+
+@media(max-width:960px){
+  .hero{min-height:auto}
+  .hero-in{padding:60px 0}
+  .hero-panel{max-width:none;padding:30px 24px}
+  .hero-panel .dim{display:none}
+  .hero .titleblock .mid{display:none}
+  .equip,.cstrip{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .ft-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .gnav,.hd-tel{display:none}
+  .burger{display:flex}
+  .hd-cta .btn{display:none}
+  .g3,.g2,.g4{grid-template-columns:1fr}
+  .ctaband{padding:30px}
+  .ctaband .ch{margin-left:0;width:100%}
+  .ch a{flex:1;min-width:120px}
+  .ft-top{grid-template-columns:1fr}
+  .mcta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--white);border-top:1px solid var(--silver-line);box-shadow:0 -6px 18px -12px rgba(34,48,60,.4)}
+  .mcta a{flex:1;text-align:center;color:var(--ink);padding:13px 4px;font-size:13px;font-weight:700;font-family:"Zen Kaku Gothic New"}
+  .mcta a.amber{background:var(--amber)}
+  body{padding-bottom:52px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="brand" href="./サカモト・ダイテム_デザイン案.html" style="flex-direction:row;align-items:center;gap:10px">
+      <img src="images/ditem_logo.png" alt="サカモト・ダイテム株式会社" style="height:36px;width:auto;display:block;flex:none"><span style="display:flex;flex-direction:column;line-height:1.05"><b>SAKAMOTO･DITEM</b><span>MOLD BASE PIONEER</span></span>
+    </a>
+    <nav class="gnav">
+      <a href="./サカモト・ダイテム_選ばれる理由.html">選ばれる理由</a>
+      <a href="./サカモト・ダイテム_モールドベース.html">モールドベース</a>
+      <a href="./サカモト・ダイテム_製品情報.html">製品情報</a>
+      <a href="./サカモト・ダイテム_加工標準化提案.html">加工標準化提案</a>
+      <a href="./サカモト・ダイテム_会社情報.html">会社情報</a>
+    </nav>
+    <div class="hd-cta">
+      <div class="hd-tel">03-3711-6531<small>TEL / 平日 9:00-17:30</small></div>
+      <a class="btn btn-amber" href="./サカモト・ダイテム_お問い合わせ.html">お問い合わせ</a>
+    </div>
+    <div class="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<!-- ===== Hero（フルブリード・大ビジュアル型） ===== -->
+<section class="hero">
+  <img class="hero-img" src="images/hero_real.jpg" alt="サカモト・ダイテムの精密モールドベース">
+  <div class="wrap"><div class="hero-in">
+    <div class="hero-panel">
+      <span class="dim" aria-hidden="true"></span>
+      <span class="eyebrow">MOLD BASE PIONEER</span>
+      <h1><span class="ln">図面のとなりに、</span><span class="ln"><span class="am">ものづくり</span>の現場を。</span></h1>
+      <p class="lead">加工設備を持つ「機能する商社」。標準も特殊も、大型も精密も。図面と現場のいちばん近くで、たしかなかたちにします。</p>
+      <div class="acts">
+        <a class="btn btn-amber" href="./サカモト・ダイテム_お問い合わせ.html">図面を相談する</a>
+        <a class="btn btn-ghost" href="./サカモト・ダイテム_モールドベース.html">製品を探す</a>
+      </div>
+      <div class="titleblock">
+        <span>DWG&nbsp;ものづくりの現場</span>
+        <span class="mid">SAKAMOTO･DAITEM</span>
+        <span class="rev">REV. A-01</span>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ===== Strengths ===== -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">Why Sakamoto</span>
+      <h2>機能する商社、という選択。</h2>
+      <p>スペックを並べる前に、なぜサカモト・ダイテムなのか。比較検討のはじめに、4つの差別化をお伝えします。</p>
+    </div>
+    <div class="grid g4">
+      <div class="str"><div class="no">01</div><h3>機能する商社</h3><p>在庫と自社加工設備を併せ持ち、標準品も特殊品も一気通貫。商社の調達力と工場の加工力を、ひとつの窓口で。</p></div>
+      <div class="str"><div class="no">02</div><h3>高精度・短納期</h3><p>精密モールドベースで培った寸法保証と工程管理。納期を明示し、最短3営業日からの即応体制で待たせません。</p></div>
+      <div class="str"><div class="no">03</div><h3>3次元CAD対応</h3><p>STEP / IGES をはじめ各種CADデータに対応。デジタル入稿から製造まで、図面のまま形にします。</p></div>
+      <div class="str"><div class="no">04</div><h3>商材の幅</h3><p>標準/特殊/大型/精密/ダイカスト/中国製に加え、アガトン・特殊鋼・電極関連まで。周辺資材も一括で。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Mold base categories ===== -->
+<section class="sec paper2" id="moldbase">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">Mold Base</span>
+      <h2>モールドベースを、用途で選ぶ。</h2>
+      <p>当社の重心であり、最も豊富な情報量を持つ領域。連番の資料群を、比較して選べるカテゴリに再編しました。</p>
+    </div>
+    <div class="grid g3">
+      <a class="cat" href="./サカモト・ダイテム_製品詳細.html"><div class="thumb"><img src="images/mb_standard.jpg" alt="標準モールドベース"><b>標準</b></div><div class="body"><p>JIS準拠の標準型。コスト・納期のバランスに優れた定番。</p><span class="more">詳細を見る ▸</span></div></a>
+      <a class="cat" href="./サカモト・ダイテム_製品詳細.html"><div class="thumb"><img src="images/mb_special.jpg" alt="特殊モールドベース"><b>特殊</b></div><div class="body"><p>形状・材質・寸法を個別仕様で。自社加工だからできる対応。</p><span class="more">詳細を見る ▸</span></div></a>
+      <a class="cat" href="./サカモト・ダイテム_製品詳細.html"><div class="thumb"><img src="images/mb_large.jpg" alt="大型モールドベース"><b>大型</b></div><div class="body"><p>大型金型向けの大判ベース。設備対応サイズを明示します。</p><span class="more">詳細を見る ▸</span></div></a>
+      <a class="cat" href="./サカモト・ダイテム_製品詳細.html"><div class="thumb"><img src="images/mb_precision.jpg" alt="精密モールドベース"><b>精密</b></div><div class="body"><p>高精度の寸法を要する成形を支える主力カテゴリ。</p><span class="more">詳細を見る ▸</span></div></a>
+      <a class="cat" href="./サカモト・ダイテム_製品詳細.html"><div class="thumb"><img src="images/mb_diecast.jpg" alt="ダイカスト用モールドベース"><b>ダイカスト</b></div><div class="body"><p>鋳造金型向け。高負荷・高温環境に適した仕様で。</p><span class="more">詳細を見る ▸</span></div></a>
+      <a class="cat" href="./サカモト・ダイテム_製品詳細.html"><div class="thumb"><img src="images/mb_china.jpg" alt="中国製モールドベース"><b>中国製</b></div><div class="body"><p>コスト重視のニーズに。品質基準を満たした調達ライン。</p><span class="more">詳細を見る ▸</span></div></a>
+    </div>
+    <div style="margin-top:30px"><a class="btn btn-line" href="./サカモト・ダイテム_モールドベース.html">用途比較表でまとめて見る</a></div>
+  </div>
+</section>
+
+<!-- ===== Products ===== -->
+<section class="sec" id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">Products</span>
+      <h2>金型まわりの資材を、ひとつの窓口で。</h2>
+      <p>モールドベースの周辺資材も幅広く取り扱い。カタログ・PDF起点だった導線を整理しました。</p>
+    </div>
+    <div class="grid g4">
+      <a class="pchip" href="./サカモト・ダイテム_製品情報.html"><img src="images/pr_agaton.jpg" alt="アガトン"><div class="pt"><b>アガトン</b><span>精密位置決め部品</span></div></a>
+      <a class="pchip" href="./サカモト・ダイテム_製品情報.html"><img src="images/pr_steel.jpg" alt="特殊鋼"><div class="pt"><b>特殊鋼</b><span>金型用鋼材各種</span></div></a>
+      <a class="pchip" href="./サカモト・ダイテム_製品情報.html"><img src="images/pr_plate.jpg" alt="特殊鋼プレート"><div class="pt"><b>特殊鋼プレート</b><span>切削加工プレート</span></div></a>
+      <a class="pchip" href="./サカモト・ダイテム_製品情報.html"><img src="images/pr_parts.jpg" alt="金型用部品"><div class="pt"><b>金型用部品</b><span>標準パーツ</span></div></a>
+      <a class="pchip" href="./サカモト・ダイテム_製品情報.html"><img src="images/pr_electrode.jpg" alt="電極関連"><div class="pt"><b>電極関連</b><span>放電加工用</span></div></a>
+      <a class="pchip" href="./サカモト・ダイテム_製品情報.html"><img src="images/pr_core.jpg" alt="コアダイス"><div class="pt"><b>コアダイス</b><span>入れ子・コア材</span></div></a>
+      <a class="pchip" href="./サカモト・ダイテム_製品情報.html"><img src="images/pr_nt.jpg" alt="NTカバー"><div class="pt"><b>NTカバー</b><span>保護・カバー材</span></div></a>
+      <a class="pchip all" href="./サカモト・ダイテム_製品情報.html" style="border-color:var(--amber)"><b style="color:var(--amber-d)">すべての製品 ▸</b></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Equipment / capability ===== -->
+<section class="sec steel" id="capability">
+  <div class="wrap equip">
+    <div class="visual"><img src="images/hero_factory.png" alt="自社加工設備による精密加工ライン"></div>
+    <div>
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="en">Capability</span>
+        <h2>数字で見る、対応力。</h2>
+        <p>派手な言葉より、対応レンジ。設備と工程で裏づける技術の輪郭です。</p>
+      </div>
+      <table class="dtable">
+        <tr><th>対応精度</th><td><b>±0.01</b> mm（精密グレード）</td></tr>
+        <tr><th>最短納期</th><td><b>3</b> 営業日〜（標準品・在庫品）</td></tr>
+        <tr><th>対応サイズ</th><td>小物〜大型ベースまで幅広く対応</td></tr>
+        <tr><th>対応CAD</th><td>STEP / IGES / 各種3次元データ</td></tr>
+        <tr><th>保有設備</th><td>マシニングセンタ／NC各種（自社加工）</td></tr>
+      </table>
+      <p style="margin-top:18px;font-size:12px;color:#9aa6b1;font-family:'Noto Sans JP'">※数値はデザイン案上の表示例。実数値はヒアリング後に確定します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Tech articles ===== -->
+<section class="sec paper2" id="tech">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">Technology</span>
+      <h2>加工標準化という、提案。</h2>
+      <p>「探しやすさ」と「技術の伝わりやすさ」を両立する技術記事。設計現場の判断を助けます。</p>
+    </div>
+    <div class="grid g3">
+      <a class="art" href="./サカモト・ダイテム_加工標準化提案.html"><div class="tag">EJECTOR</div><h3>エジェクタ穴の標準化</h3><p>位置・径・公差を標準化し、設計と加工のやり取りを最小化する考え方。</p></a>
+      <a class="art" href="./サカモト・ダイテム_加工標準化提案.html"><div class="tag">RUNNER</div><h3>ランナー設計の勘どころ</h3><p>成形品質と歩留まりを左右するランナー。基本指針を図解で整理。</p></a>
+      <a class="art" href="./サカモト・ダイテム_加工標準化提案.html"><div class="tag">POCKET</div><h3>ポケット加工と精度</h3><p>入れ子ポケットの精度確保。設備対応と公差設計のポイント。</p></a>
+    </div>
+    <div style="margin-top:28px"><a class="btn btn-line" href="./サカモト・ダイテム_加工標準化提案.html">技術記事をすべて見る</a></div>
+  </div>
+</section>
+
+<!-- ===== News ===== -->
+<section class="sec" id="news">
+  <div class="wrap">
+    <div class="sec-head"><span class="en">News &amp; Documents</span><h2>お知らせ・技術資料</h2></div>
+    <div class="news-row"><time>2026.06.10</time><span class="nt">お知らせ</span><p>夏季休業期間のお知らせを掲載しました。</p></div>
+    <div class="news-row"><time>2026.05.28</time><span class="nt dl">資料DL</span><p>総合カタログ（PDF）を最新版へ更新しました。</p><a class="btn btn-line" style="height:38px;padding:0 16px" href="#">⬇ ダウンロード</a></div>
+    <div class="news-row"><time>2026.05.12</time><span class="nt">技術</span><p>技術記事「エジェクタ穴の標準化」を公開しました。</p></div>
+    <div class="news-row"><time>2026.04.20</time><span class="nt">お知らせ</span><p>精密モールドベースの対応サイズを拡大しました。</p></div>
+  </div>
+</section>
+
+<!-- ===== Company strip ===== -->
+<section class="sec paper2">
+  <div class="wrap cstrip">
+    <div class="ph"><img src="images/company_building.jpg" alt="サカモト・ダイテム株式会社 本社・工場"></div>
+    <div>
+      <span class="en">Company</span>
+      <h2 style="margin-top:10px">モールドベースの<br>パイオニアとして。</h2>
+      <p>金型ベースひと筋に積み上げてきた、加工技術と調達網。お客様の「こう作りたい」を、設備と人で形にしてきました。これからも、図面と現場のいちばん近くで。</p>
+      <a class="btn btn-line" href="./サカモト・ダイテム_会社情報.html">会社情報を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA band ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="ctaband">
+      <div class="inner">
+        <div>
+          <h2>図面のご相談・お見積り、お気軽に。</h2>
+          <p>お電話・メール・FAX、いずれでも承ります。回答目安：翌日〜5営業日以内。</p>
+        </div>
+        <div class="ch">
+          <a href="tel:0337116531"><span class="big">03-3711-6531</span><small>TEL</small></a>
+          <a href="mailto:d.sakamoto.m-f-f-f-o@ditem.co.jp"><span class="big">メール</span><small>MAIL</small></a>
+          <a class="amber" href="./サカモト・ダイテム_お問い合わせ.html"><span class="big">お問い合わせ</span><small>FORM &amp; 資料DL</small></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <div class="brand"><img src="images/sakamoto_sign.png" alt="サカモト・ダイテム株式会社" style="width:250px;max-width:100%;height:auto"></div>
+        <p class="ft-desc">モールドベースの製造・販売、金型まわり資材の調達と加工。</p>
+      </div>
+      <div><h5>モールドベース</h5><ul><li><a href="./サカモト・ダイテム_モールドベース.html">標準 / 特殊 / 大型</a></li><li><a href="./サカモト・ダイテム_モールドベース.html">精密 / ダイカスト</a></li><li><a href="./サカモト・ダイテム_モールドベース.html">中国製</a></li><li><a href="./サカモト・ダイテム_モールドベース.html">用途比較表</a></li></ul></div>
+      <div><h5>製品情報</h5><ul><li><a href="./サカモト・ダイテム_製品情報.html">アガトン / 特殊鋼</a></li><li><a href="./サカモト・ダイテム_製品情報.html">特殊鋼プレート</a></li><li><a href="./サカモト・ダイテム_製品情報.html">金型用部品 / 電極</a></li><li><a href="./サカモト・ダイテム_製品情報.html">コアダイス / NTカバー</a></li></ul></div>
+      <div><h5>技術・会社</h5><ul><li><a href="./サカモト・ダイテム_選ばれる理由.html">選ばれる理由</a></li><li><a href="./サカモト・ダイテム_加工標準化提案.html">加工標準化提案</a></li><li><a href="./サカモト・ダイテム_会社情報.html">会社情報</a></li></ul></div>
+      <div><h5>お問い合わせ</h5><ul><li><a href="./サカモト・ダイテム_お問い合わせ.html">お問い合わせフォーム</a></li><li><a href="tel:0337116531">TEL 03-3711-6531</a></li><li><a href="#">FAX 03-3793-6330</a></li><li><a href="./サカモト・ダイテム_お問い合わせ.html">資料ダウンロード</a></li></ul></div>
+    </div>
+    <div class="ft-bottom">
+      <span>© SAKAMOTO･DITEM CO., LTD.</span>
+      <span>Designed by ITLINE — Design Proposal</span>
+    </div>
+  </div>
+</footer>
+
+<!-- mobile sticky cta -->
+<div class="mcta">
+  <a href="tel:0337116531">☎ 電話</a>
+  <a href="mailto:d.sakamoto.m-f-f-f-o@ditem.co.jp">✉ メール</a>
+  <a class="amber" href="./サカモト・ダイテム_お問い合わせ.html">お問い合わせ</a>
+</div>
+
+<script>
+  document.querySelector('.burger').addEventListener('click',function(){
+    var n=document.querySelector('.gnav');
+    var open=n.style.display==='flex';
+    n.style.display=open?'':'flex';
+    n.style.position='absolute';n.style.top='72px';n.style.left='0';n.style.right='0';
+    n.style.flexDirection='column';n.style.background='#ffffff';n.style.padding=open?'':'18px 24px';
+    n.style.gap='14px';n.style.borderBottom='1px solid #d3dbe2';
+  });
+</script>
+</body>
+</html>
